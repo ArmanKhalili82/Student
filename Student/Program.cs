@@ -1,11 +1,10 @@
 ﻿using Student;
 
+List<Students> students = new List<Students>();
+List<Teacher> allteachersinfo = new List<Teacher>();
+List<Lesson> lessons = new List<Lesson>();
 while (true)
 {
-    List<Students> students = new List<Students>();
-    List<Teacher> allteachersinfo = new List<Teacher>();
-    List<Lesson> lessons = new List<Lesson>();
-
     Console.WriteLine("Enter Your Command:");
     var command = Console.ReadLine();
 
