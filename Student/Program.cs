@@ -21,8 +21,8 @@ while (true)
             Console.WriteLine("Enter Your Student Family:");
             var studentfamily = Console.ReadLine();
             Console.WriteLine("Enter Your Student Score:");
-            int studentscore = int.Parse(Console.ReadLine());
-            StudentService.AddStudent(studentname, studentfamily, studentscore);
+            var studentscore = Convert.ToInt32(Console.ReadLine());
+            StudentService.AddStudent(studentname, studentfamily, studentscore, students);
         }
 
         else if (select == "Teacher")
@@ -33,7 +33,7 @@ while (true)
             var teacherfamily = Console.ReadLine();
             Console.WriteLine("Enter Your Teacher Course:");
             var teachercourse = Console.ReadLine();
-            TeacherService.AddTeacher(teachertname, teacherfamily, teachercourse);
+            TeacherService.AddTeacher(teachertname, teacherfamily, teachercourse, allteachersinfo);
             }
         }
     
@@ -47,7 +47,7 @@ while (true)
         {
             Console.WriteLine("Enter Your Student Name:");
             var name = Console.ReadLine();
-            StudentService.GetAllStudent(name);
+            StudentService.GetAllStudent(name, students);
         }
 
         else if (select == "Teacher")
@@ -56,7 +56,7 @@ while (true)
             var name = Console.ReadLine();
             Console.WriteLine("Enter Your Teacher Lesson");
             var lesson = Console.ReadLine();
-            TeacherService.GetAllTeacher(name, lesson);
+            TeacherService.GetAllTeacher(name, lesson, allteachersinfo, lessons);
         }
     }
 
@@ -69,14 +69,14 @@ while (true)
         {
             Console.WriteLine("Enter Your Student Name:");
             var studentname = Console.ReadLine();
-            StudentService.DeleteStudent(studentname);
+            StudentService.DeleteStudent(studentname, students);
         }
 
         else if (select == "Teacher")
         {
             Console.WriteLine("Enter Your Teacher Name:");
             var teachername = Console.ReadLine();
-            TeacherService.DeleteTeacher(teachername);
+            TeacherService.DeleteTeacher(teachername, allteachersinfo);
         }
 
     else if (command == "Edit")
@@ -89,14 +89,14 @@ while (true)
                 {
                     Console.WriteLine("Enter Your Student Name:");
                     var studentname = Console.ReadLine();
-                    StudentService.EditStudent(studentname);
+                    StudentService.EditStudent(studentname, students);
                 }
 
                 else if (editeditems == "Teacher")
                 {
                     Console.WriteLine("Enter Your Teacher Name:");
                     var teachername = Console.ReadLine();
-                    TeacherService.EditTeacher(teachername);
+                    TeacherService.EditTeacher(teachername, allteachersinfo, lessons);
                 }
             }
         }

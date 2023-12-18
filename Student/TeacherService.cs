@@ -2,9 +2,8 @@
 
 public class TeacherService
 {
-    public static void AddTeacher(string teachertname, string teacherfamily, string teachercourse)
+    public static void AddTeacher(string teachertname, string teacherfamily, string teachercourse, List<Teacher> allteachersinfo)
     {
-        List<Teacher> allteachersinfo = new List<Teacher>();
         List<Lesson> lessons = new List<Lesson>();
         var teacher = allteachersinfo.Where(t => t.TeacherName == teachertname && t.TeacherFamily == teacherfamily).FirstOrDefault();
         var lesson = lessons.Where(t => t.Course == teachercourse).FirstOrDefault();
@@ -23,10 +22,8 @@ public class TeacherService
         }
     }
 
-    public static void GetAllTeacher(string name, string lesson)
+    public static void GetAllTeacher(string name, string lesson, List<Teacher> allteachersinfo, List<Lesson> lessons)
     {
-        List<Teacher> allteachersinfo = new List<Teacher>();
-        List<Lesson> lessons = new List<Lesson>();
         var getteacher = allteachersinfo.OrderBy(s => s.TeacherName == name).ToList();
         var getlesson = lessons.OrderBy(l => l.Course == lesson).ToList();
 
@@ -41,9 +38,8 @@ public class TeacherService
         }
     }
 
-    public static void DeleteTeacher(string teachername)
+    public static void DeleteTeacher(string teachername, List<Teacher> allteachersinfo)
     {
-        List<Teacher> allteachersinfo = new List<Teacher>();
         var selecteditem = allteachersinfo.Where(s => s.TeacherName == teachername).FirstOrDefault();
         if (selecteditem == null)
         {
@@ -56,10 +52,8 @@ public class TeacherService
         }
     }
 
-    public static void EditTeacher(string teachername)
+    public static void EditTeacher(string teachername, List<Teacher> allteachersinfo, List<Lesson> lessons)
     {
-        List<Teacher> allteachersinfo = new List<Teacher>();
-        List<Lesson> lessons = new List<Lesson>();
         var teacheredit = allteachersinfo.Where(t => t.TeacherName == teachername).FirstOrDefault();
         if (teacheredit == null)
         {

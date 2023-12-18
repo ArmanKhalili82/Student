@@ -2,9 +2,8 @@
 
 public class StudentService
 {
-    public static void AddStudent(string studentname, string studentfamily, int studentscore)
+    public static void AddStudent(string studentname, string studentfamily, int studentscore, List<Students> students)
     {
-        List<Students> students = new List<Students>();
         var st = students.Where(s => s.Name == studentname && s.Family == studentfamily && s.Score == studentscore).FirstOrDefault();
         if (st == null)
         {
@@ -16,10 +15,10 @@ public class StudentService
         }
     }
 
-    public static void GetAllStudent(string name)
+    public static void GetAllStudent(string name, List<Students> students)
     {
-        List<Students> students = new List<Students>();
         var getstudents = students.OrderBy(s => s.Name == name).ToList();
+        //GetAll Command Does Not Work When You Debug It Skips The Foreach Loop So It Does Not Work
 
         foreach (var i in getstudents)
         {
@@ -27,9 +26,8 @@ public class StudentService
         }
     }
 
-    public static void DeleteStudent(string studentname)
+    public static void DeleteStudent(string studentname, List<Students> students)
     {
-        List<Students> students = new List<Students>();
         var selecteditem = students.Where(s => s.Name == studentname).FirstOrDefault();
         if (selecteditem == null)
         {
@@ -42,9 +40,8 @@ public class StudentService
         }
     }
 
-    public static void EditStudent(string studentname)
+    public static void EditStudent(string studentname, List<Students> students)
     {
-        List<Students> students = new List<Students>();
         var studentedit = students.Where(s => s.Name == studentname).FirstOrDefault();
         if (studentname == null)
         {
